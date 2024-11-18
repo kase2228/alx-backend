@@ -47,7 +47,7 @@ class Server:
             page, int) and page > 0, "arguments should be +ve integers."
         assert isinstance(
             page_size, int
-                ) and page_size > 0, "arguments should be +ve integers."
+        ) and page_size > 0, "arguments should be +ve integers."
 
         data = self.dataset()
         length = len(data)
@@ -56,12 +56,13 @@ class Server:
         if (start < length):
             return data[start:end]
         return []
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         "Return a dictionary of some important parameters"
 
         data = self.get_page(page, page_size)
         total_items = len(self.dataset())
-        total_pages = (total_items + page_size-1) // page_size
+        total_pages = (total_items + page_size - 1) // page_size
 
         return {
             "page_size": page_size,
