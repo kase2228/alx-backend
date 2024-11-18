@@ -46,7 +46,8 @@ class Server:
         assert isinstance(
             page, int) and page > 0, "arguments should be +ve integers."
         assert isinstance(
-            page_size, int) and page_size > 0, "arguments should be +ve integers."
+            page_size, int
+                ) and page_size > 0, "arguments should be +ve integers."
 
         data = self.dataset()
         length = len(data)
