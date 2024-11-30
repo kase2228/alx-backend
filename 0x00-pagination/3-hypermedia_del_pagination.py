@@ -36,12 +36,12 @@ class Server:
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """Returns a dictionary with pagination info, considering deletions."""
-        
+
         assert isinstance(
             index, int) and index >= 0, "Index must be a non-negative integer."
         assert isinstance(
             page_size, int
-            ) and page_size > 0, "Page size must be a positive integer."
+        ) and page_size > 0, "Page size must be a positive integer."
 
         indexed_data = self.indexed_dataset()
         total_items = len(indexed_data)
