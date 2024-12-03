@@ -30,8 +30,8 @@ class MRUCache(BaseCaching):
                     del self.cache_data[self.most_recent]
                     self.cache_data[key] = item
 
-            self.most_recent = key
-    
+                self.most_recent = key
+
     def get(self, key):
         """
         get an item from the cache using key
@@ -41,5 +41,5 @@ class MRUCache(BaseCaching):
         if key in self.cache_data:
             self.most_recent = key
             return self.cache_data[key]
-        
+
         return None
