@@ -28,11 +28,11 @@ class LFUCache(BaseCaching):
         if key in self.cache_data:
             self.cache_data[key] = item
             self.freq_tracker[key] += 1
-            self.usage_tracker[key] = len(self.usage_tracker)  
+            self.usage_tracker[key] = len(self.usage_tracker)
         else:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 min_freq = min(self.freq_tracker.values())
-                lfu_keys = [k for k, v in self.freq_tracker.items() 
+                lfu_keys = [k for k, v in self.freq_tracker.items()
                             if v == min_freq]
 
                 if len(lfu_keys) > 1:
@@ -48,8 +48,8 @@ class LFUCache(BaseCaching):
 
             # Add the new key
             self.cache_data[key] = item
-            self.freq_tracker[key] = 1  
-            self.usage_tracker[key] = len(self.usage_tracker)  
+            self.freq_tracker[key] = 1
+            self.usage_tracker[key] = len(self.usage_tracker)
 
     def get(self, key):
         """
@@ -57,7 +57,7 @@ class LFUCache(BaseCaching):
         Returns None if the key is None or doesn't exist.
         """
         if key in self.cache_data:
-            self.freq_tracker[key] += 1  
-            self.usage_tracker[key] = len(self.usage_tracker) 
+            self.freq_tracker[key] += 1
+            self.usage_tracker[key] = len(self.usage_tracker)
             return self.cache_data[key]
         return None
