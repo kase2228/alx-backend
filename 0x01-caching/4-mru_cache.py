@@ -28,9 +28,9 @@ class MRUCache(BaseCaching):
                 if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                     print(f"DISCARD: {self.most_recent}")
                     del self.cache_data[self.most_recent]
-                    self.cache_data[key] = item
+                self.cache_data[key] = item
 
-                self.most_recent = key
+            self.most_recent = key
 
     def get(self, key):
         """
