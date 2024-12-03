@@ -2,6 +2,7 @@
 """ FIFO Cache module """
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """
     inherits from Basecaching and perform
@@ -23,7 +24,7 @@ class FIFOCache(BaseCaching):
         if key is not None and item is not None:
             if key in self.cache_data:
                 self.order.remove(key)
-            
+
             elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 oldest = self.order.pop(0)
                 del self.cache_data[oldest]
