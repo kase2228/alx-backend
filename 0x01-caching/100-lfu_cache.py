@@ -32,10 +32,12 @@ class LFUCache(BaseCaching):
         else:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 min_freq = min(self.freq_tracker.values())
-                lfu_keys = [k for k, v in self.freq_tracker.items() if v == min_freq]
+                lfu_keys = [k for k, v in self.freq_tracker.items() 
+                            if v == min_freq]
 
                 if len(lfu_keys) > 1:
-                    lfu_key = min(lfu_keys, key=lambda k: self.usage_tracker[k])
+                    lfu_key = min(
+                        lfu_keys, key=lambda k: self.usage_tracker[k])
                 else:
                     lfu_key = lfu_keys[0]
 
