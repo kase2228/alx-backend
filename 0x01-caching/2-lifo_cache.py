@@ -5,7 +5,7 @@ from base_caching import BaseCaching
 
 class LIFOCache(BaseCaching):
     """
-    inherits from BaseCaching and 
+    inherits from BaseCaching and
     perform LIFO caching Mechanism
     """
 
@@ -17,7 +17,7 @@ class LIFOCache(BaseCaching):
         super().__init__()
         self.last_key = None
 
-    def put(self, key ,item):
+    def put(self, key, item):
         """
         add an item in LIFOCahing mechanism
         """
